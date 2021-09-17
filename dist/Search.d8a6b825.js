@@ -103308,15 +103308,12 @@ var vector = new _layer.Vector({
 map.addLayer(vector);
 searchBtn.click(function () {
   var parcel = $('#parcelInput').val().toString();
-  var block = $('#blockInput').val().toString();
-
-  if (parcel.length == 0) {
-    window.alert('please enter parcel number');
-  }
-
-  if (block.length == 0) {
-    window.alert('please enter block number');
-  }
+  var block = $('#blockInput').val().toString(); // if(parcel.length==0){
+  //     window.alert ('please enter parcel number');
+  // }
+  // if(block.length==0){
+  //     window.alert ('please enter block number');
+  // }
 
   var featureRequest = new _format.WFS().writeGetFeature({
     srsName: 'EPSG:28191',
@@ -103324,7 +103321,7 @@ searchBtn.click(function () {
     featurePrefix: 'Parcels',
     featureTypes: ['Parcels'],
     outputFormat: 'application/json',
-    filter: (0, _filter.and)((0, _filter.equalTo)('parcel_n', parcel), (0, _filter.equalTo)('block_n', block))
+    filter: (0, _filter.or)((0, _filter.equalTo)('parcel_n', parcel), (0, _filter.equalTo)('block_n', block))
   });
   fetch(wfsUrl, {
     method: 'Post',
@@ -103372,7 +103369,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55316" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62983" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
