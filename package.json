@@ -1,0 +1,23 @@
+{
+  "name": "web_mapping_application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build --public-url . index.html"
+  },
+  "author": "Chafiq",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "ol": "^6.6.1",
+    "parcel-bundler": "^1.12.5",
+    "popper.js": "^1.16.1",
+    "save-dev": "0.0.1-security"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.6"
+  }
+}
