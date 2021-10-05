@@ -30,12 +30,12 @@ searchBtn.click(function(){
     const parcel = $('#parcelInput').val().toString();
     const block = $('#blockInput').val().toString();
 
-    // if(parcel.length==0){
-    //     window.alert ('please enter parcel number');
-    // }
-    // if(block.length==0){
-    //     window.alert ('please enter block number');
-    // }
+    if(parcel.length==0){
+        window.alert ('please enter parcel number');
+    }
+    if(block.length==0){
+        window.alert ('please enter block number');
+    }
 
     const featureRequest = new WFS().writeGetFeature({
 
@@ -44,7 +44,7 @@ searchBtn.click(function(){
         featurePrefix:'Parcels',
         featureTypes:['Parcels'],
         outputFormat:'application/json',
-        filter: or(
+        filter: and(
             equalTo('parcel_n',parcel),
             equalTo('block_n',block),
         )
